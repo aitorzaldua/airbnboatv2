@@ -33,11 +33,17 @@
 }
 
 .inputs {
+    
     font-size: 12px;
     font-weight:bold;
     margin-top: 10px;
     width:90px;
     align-items: center;
+}
+
+.inputs__selector{
+    display: flex;
+    flex-direction: row;
 }
 
 

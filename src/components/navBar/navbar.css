@@ -20,6 +20,7 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
+    margin-left: 6rem;
 }
 
 .navBar__tabContent-searchFields {
@@ -41,6 +42,14 @@
     align-items: center;
 }
 
+.inputs__date {
+    font-size: 12px;
+    font-weight:bold;
+    margin-top: 10px;
+    width:120px;
+    align-items: center;
+}
+
 .inputs__selector{
     display: flex;
     flex-direction: row;
@@ -56,8 +65,6 @@
     margin-right: 20px;
     padding-bottom: 15px;
 }
-
-
 
 
 .navBar__rigthSide {
@@ -83,4 +90,16 @@
 
 .navBar__host:hover {
     background-color: #f0f7fa;
+}
+
+.searchButton {
+    background-color: #EB4E5F;
+    padding:10px;
+    border-radius: 50%;
+    transition: transform .4s;
+}
+
+.searchButton:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }

@@ -16,7 +16,8 @@
 
 }
 
-/* Location picker*/
+/*PICKER*/
+/* 1.- Location picker*/
 .sc-bPyhqo{
     border: 0px !important;
     padding-left: 0px !important;
@@ -34,7 +35,7 @@
 
 /* Set the ...*/
 .sc-yeoIj {
-    margin: 5px 0 5px 5px !important;
+    /* margin: 5px 0 5px 5px !important; */
 }
 .sc-bPyhqo {
     margin-right: -5px !important;
@@ -45,4 +46,15 @@
     display: none !important;
 }
 
-/*End of Location Picker*/
+/*1.- End of Location Picker*/
+
+/*2.- Dates */
+.sc-HzFiz {
+    outline: 0px !important;
+    padding-left: 0px !important;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    height:26px !important;
+    font-size:14px !important;
+}
+

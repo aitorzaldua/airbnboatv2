@@ -1,14 +1,16 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import bgHome from "./assets/bayboat2.jpeg";
-import Navbar from "./components/navBar/Navbar";
+import Rentals from "./pages/rentals/Rentals";
+import Home from "./pages/home/Home";
 
 function App() {
   return (
     <div className="App">
-      <div className="container backgroundHome" style={{ backgroundImage: `url(${bgHome})` }}>
-        <Navbar />
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/rentals" element={<Rentals />} />
+      </Routes>
     </div>
   );
 }

@@ -19,6 +19,11 @@
     font-size: 14px !important;
 }
 
+/*Erase the arrow */
+.sc-ESujJ {
+    display: none !important;
+}
+
 /* Location box */
 .sc-eEOqmf{
     width: 25rem !important;
@@ -29,10 +34,7 @@
     margin-right: -5px !important;
 }
 
-/*Erase the arrow */
-.sc-ESujJ {
-    display: none !important;
-}
+
 
 /*1.- End of Location Picker*/
 

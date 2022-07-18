@@ -9,7 +9,7 @@
 
 /*PICKER*/
 /* 1.- Location picker*/
-.sc-efBctP{
+.sc-dPyBCJ {
     border: 0px !important;
     padding-left: 0px !important;
     padding-top: 3px !important;
@@ -17,6 +17,11 @@
     height: 30px !important;
     width: 90px !important;
     font-size: 14px !important;
+}
+
+/*Erase the arrow */
+.sc-cOFTSb {
+    display: none !important;
 }
 
 /* Location box */
@@ -29,10 +34,7 @@
     margin-right: -5px !important;
 }
 
-/*Erase the arrow */
-.sc-EjJ {
-    display: none !important;
-}
+
 
 /*1.- End of Location Picker*/
 

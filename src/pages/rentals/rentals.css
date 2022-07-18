@@ -1,0 +1,160 @@
+.rentals {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    justify-content: space-between;
+
+}
+
+.rentals__tabContent {
+    width:800px;
+    border: 1.5px solid rgb(242, 242, 242);
+    border-radius: 100px;
+    height:65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left:14px;
+    padding-right:5px;
+    box-shadow:  5px 10px 10px #d6f3ff;
+}
+
+.rentals__tabContent-searchFields {
+    width:800px;
+    background-color: white;
+    height:65px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.inputs__destination {
+    
+    font-size: 12px;
+    font-weight:bold;
+    margin-top: 6px;
+    width:182px;
+    align-items: center;
+}
+.inputs {
+    
+    font-size: 12px;
+    font-weight:bold;
+    margin-top: 10px;
+    width:90px;
+    align-items: center;
+}
+
+.inputs__date {
+    font-size: 12px;
+    font-weight:bold;
+    margin-top: 10px;
+    width:120px;
+    align-items: center;
+}
+
+.vlRentals {
+    position: relative;
+    top:15;
+    height: 20%;
+    background-color: rgb(228, 228, 228);
+    width: 1.5px;
+    padding-bottom: 15px;
+}
+
+.line {
+    border-top:1px solid rgb(230, 229, 229);
+    margin-bottom: 0px;
+}
+
+.line2 {
+    border-top:0.5px solid rgb(230, 230, 230);
+    margin: 30px 0px;
+}
+
+
+.rentalsContent {
+    display: flex;
+    justify-content: start;
+    height: calc(100vh - 135px);
+}
+
+.rentalsContentL {
+    width: 50%;
+    padding:30px;
+    height: calc(100vh - 150px);
+    overflow: scroll;
+}
+
+.rentalsContentR {
+    width:50%;
+}
+
+.rentalDiv {
+    display: flex;
+    justify-content: space-around;
+}
+
+.rentalDivH {
+    animation: mymove 6s;
+    border-radius: 20px;
+    display: flex;
+    justify-content: start;
+}
+
+.rentalDiv {
+    display: flex;
+    justify-content: space-around;
+}
+
+.rentalDivH {
+    animation: mymove 6s;
+    border-radius: 20px;
+    display: flex;
+    justify-content: start;
+}
+
+
+@keyframes mymove {
+    from {background-color: #dddddd;}
+    to {background-color: #dddddd00;}
+  }
+.rentalImg {
+    height:200px;
+    width:300px;
+    border-radius:20px;
+    margin-right:20px; 
+}
+
+.rentalInfo {
+    padding:10px;
+    width: 100%;
+}
+
+.rentalTitle {
+    font-size: 23px;
+    margin-bottom: 15px;;
+}
+
+.rentalDesc {
+    color: gray;
+}
+
+.bottomButton {
+    margin-top:50px;
+    justify-content: space-between;
+    display: flex;
+    width:100%;
+    align-items: center;
+}
+
+.price {
+    display:flex;
+    justify-content: end;
+    gap:5px;
+    color:#808080;
+    font-size: 12px;
+}

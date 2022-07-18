@@ -9,7 +9,7 @@
 
 /*PICKER*/
 /* 1.- Location picker*/
-.sc-bPyhqo{
+.sc-dPyBCJ {
     border: 0px !important;
     padding-left: 0px !important;
     padding-top: 3px !important;
@@ -19,25 +19,27 @@
     font-size: 14px !important;
 }
 
+/*Erase the arrow */
+.sc-cOFTSb {
+    display: none !important;
+}
+
 /* Location box */
-.sc-eEOqmf{
+.sc-kgUAyh{
     width: 25rem !important;
 }
 
 
-.sc-bPyhqo {
+.sc- {
     margin-right: -5px !important;
 }
 
-/*Erase the arrow */
-.sc-ESujJ {
-    display: none !important;
-}
+
 
 /*1.- End of Location Picker*/
 
 /*2.- Dates */
-.sc-HzFiz {
+.sc-jIZahH {
     outline: 0px !important;
     padding-left: 0px !important;
     padding-top: 3px !important;

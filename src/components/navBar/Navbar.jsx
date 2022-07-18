@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 import { GiFishingBoat } from "react-icons/gi";
 
 const Navbar = () => {
-  const [destination, setDestination] = useState("Miami");
-  const [checkIn, setCheckIn] = useState();
-  const [checkOut, setCheckOut] = useState();
+  const [destination, setDestination] = useState("Miami - Miami Beach");
+   const [checkIn, setCheckIn] = useState(new Date());
+  const [checkOut, setCheckOut] = useState(new Date());
   const [guests, setGuests] = useState(2);
 
   console.log(destination, checkIn, checkOut, guests);
@@ -31,7 +31,7 @@ const Navbar = () => {
                   { id: "2", label: "Australia - Airlie Beach" },
                   { id: "3", label: "Tuscany - Porto Cala de Medici" },
                   { id: "4", label: "Galiza - Razo Beach" },
-                  { id: "5", label: "Norwegian - Sognefjord, " },
+                  { id: "5", label: "Norwegian - Sognefjord"},
                 ]}
               />
             </div>
@@ -39,14 +39,14 @@ const Navbar = () => {
           <div className="vl" />
           <div className="inputs__date">
             Check in
-            <DatePicker id="CheckIn" onChange={(event) => setCheckIn(event)} />
+            <DatePicker id="date-picker" onChange={(event) => setCheckIn(event.date)} />
           </div>
           <div className="vl" />
           <div className="inputs__date">
             Check out
             <DatePicker
-              id="CheckOut"
-              onChange={(event) => setCheckOut(event)}
+              id="date-picker"
+              onChange={(event) => setCheckOut(event.date)}
             />
           </div>
           <div className="vl" />
@@ -59,13 +59,15 @@ const Navbar = () => {
               onChange={(event) => setGuests(Number(event.target.value))}
             />
           </div>
-          <Link to={"/rentals"} state={{
-            destination: destination,
-            checkIn: checkIn,
-            checkOut: checkOut,
-            guests: guests
-          }
-          }>
+          <Link
+            to={"/rentals"}
+            state={{
+              destination: destination,
+              checkIn: checkIn,
+              checkOut: checkOut,
+              guests: guests,
+            }}
+          >
             <div className="searchButton">
               <Icon fill="#ffffff" size={24} svg="search" />
             </div>
@@ -74,7 +76,13 @@ const Navbar = () => {
       </div>
 
       <div className="navBar__rigthSide">
-        <div className="navBar__host">Become a Host<GiFishingBoat /></div>
+        <Link to={"/hosts"} className="link">
+          <div className="navBar__host">
+            Become a Host
+            <GiFishingBoat />
+          </div>
+        </Link>
+
         <ConnectButton />
       </div>
     </div>

@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState} from "react";
 import "./rentals.css";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logoAnB.png";
 import { ConnectButton, Button, Icon } from "web3uikit";
 import { GiFishingBoat } from "react-icons/gi";
+import RentalsMap from "../../components/navBar/rentalsMap/RentalsMap";
 
 const Rentals = () => {
   const { state: searchFilters } = useLocation();
-
+  const [highlight, setHighlight] = useState()
+;
   const rentalsList = [
     {
       attributes: {
@@ -24,6 +26,11 @@ const Rentals = () => {
       },
     },
   ];
+
+  let cords = [];
+  rentalsList.forEach((e) => {
+    cords.push({ lat: e.attributes.lat, lng: e.attributes.long})
+  });
 
   return (
     <>
@@ -78,11 +85,11 @@ const Rentals = () => {
         <div className="rentalsContentL">
           Stays Available for your destination
           {rentalsList &&
-            rentalsList.map((e) => {
+            rentalsList.map((e, i) => {
               return (
                 <>
                   <hr className="line2" />
-                  <div className="rentalDiv">
+                  <div className={highlight === i? "rentalDivH" : "rentalDiv"}>
                     <img
                       className="rentalImg"
                       src={e.attributes.imgUrl}
@@ -106,7 +113,9 @@ const Rentals = () => {
             })}
         </div>
         <hr className="line2" />
-        <div className="rentalsContentR"></div>
+        <div className="rentalsContentR">
+          <RentalsMap  locations={cords} setHighlight={setHighlight}/>
+        </div>
       </div>
     </>
   );

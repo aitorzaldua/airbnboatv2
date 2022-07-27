@@ -46,7 +46,7 @@ contract AirbnBoat {
         address renter
     );
 
-    event newDatesBooke(
+    event newDatesBooked(
         string[] datesBooked,
         uint id,
         address booker,
@@ -106,5 +106,66 @@ contract AirbnBoat {
         );
 
         counter++;
+    }
+
+    function checkBookings(uint _id, string[] memory _newBookings)
+        private
+        view
+        returns (bool)
+    {
+        for (uint i = 0; i < _newBookings.length; i++) {
+            for (uint j = 0; j < rentals[_id].datesBooked.length; j++) {
+                if (
+                    keccak256(abi.encodePacked(rentals[_id].datesBooked[j])) ==
+                    keccak256(abi.encodePacked(_newBookings[j]))
+                ) {
+                    return false;
+                }
+            }
+        }
+    }
+
+    function addDatesBooked(uint _id, string[] memory _newBookings)
+        public
+        payable
+    {
+        require(_id < counter, "Sorry, No such rental");
+        require(
+            checkBookings(_id, _newBookings),
+            "Already booked for requested date"
+        );
+        require(
+            msg.value ==
+                (rentals[_id].pricePerDay * 1 ether * _newBookings.length),
+            "Please submit the asking price in order to complete the purchase"
+        );
+
+        for (uint i = 0; i < _newBookings.length; i++) {
+            rentals[_id].datesBooked.push(_newBookings[i]);
+        }
+
+        payable(owner).transfer(msg.value);
+        emit newDatesBooked(
+            _newBookings,
+            _id,
+            msg.sender,
+            rentals[_id].city,
+            rentals[_id].imgUrl
+        );
+    }
+
+    function getRental(uint _id)
+        public
+        view
+        returns (
+            string memory,
+            uint,
+            string[] memory
+        )
+    {
+        require(_id < counter, "No such rental");
+
+        rentalInfo storage s = rentals[_id];
+        return (s.name, s.pricePerDay, s.datesBooked);
     }
 }

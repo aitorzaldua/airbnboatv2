@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { GiFishingBoat } from "react-icons/gi";
 
 const Navbar = () => {
-  const [destination, setDestination] = useState("Miami - Miami Beach");
+  const [destination, setDestination] = useState("Miami Beach in Florida, USA");
    const [checkIn, setCheckIn] = useState(new Date());
   const [checkOut, setCheckOut] = useState(new Date());
   const [guests, setGuests] = useState(2);
@@ -26,12 +26,12 @@ const Navbar = () => {
                 defaultOptionIndex={0}
                 onChange={(data) => setDestination(data.label)}
                 options={[
-                  { id: "0", label: "Miami - Miami Beach" },
-                  { id: "1", label: "Bahamas - Paradise Island" },
-                  { id: "2", label: "Australia - Airlie Beach" },
-                  { id: "3", label: "Tuscany - Porto Cala de Medici" },
-                  { id: "4", label: "Galiza - Razo Beach" },
-                  { id: "5", label: "Norwegian - Sognefjord"},
+                  { id: "0", label: "Miami Beach in Florida, USA" },
+                  { id: "1", label: "Paradise Island in Bahamas" },
+                  { id: "2", label: "Airlie Beach in Australia" },
+                  { id: "3", label: "Porto Cala de Medici in Tuscany, Italy" },
+                  { id: "4", label: "Razo Surf Beach, Galiza" },
+                  { id: "5", label: "Sognefjord in the Norwegian fjords"},
                 ]}
               />
             </div>

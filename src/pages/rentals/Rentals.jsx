@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import "./rentals.css";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -6,31 +6,49 @@ import logo from "../../assets/logoAnB.png";
 import { ConnectButton, Button, Icon } from "web3uikit";
 import { GiFishingBoat } from "react-icons/gi";
 import RentalsMap from "../../components/navBar/rentalsMap/RentalsMap";
+import {useMoralis, useWeb3ExecuteFunction } from "react-moralis";
+
 
 const Rentals = () => {
   const { state: searchFilters } = useLocation();
   const [highlight, setHighlight] = useState()
-;
-  const rentalsList = [
-    {
-      attributes: {
-        city: "New York",
-        unoDescription: "3 Guests • 2 Beds • 2 Rooms",
-        dosDescription: "Wifi • Kitchen • Living Area",
-        imgUrl:
-          "https://ipfs.moralis.io:2053/ipfs/QmS3gdXVcjM72JSGH82ZEvu4D7nS6sYhbi5YyCw8u8z4pE/media/3",
-        lat: "40.716862",
-        long: "-73.999005",
-        name: "Apartment in China Town",
-        pricePerDay: "3",
-      },
-    },
-  ];
+  const [rentalsList, setRentalsList] = useState();
+  const [coOrdenates, setCoOrdenates] = useState();
 
-  let cords = [];
-  rentalsList.forEach((e) => {
-    cords.push({ lat: e.attributes.lat, lng: e.attributes.long})
-  });
+  const {Moralis} = useMoralis();
+
+  console.log("destination=> ", searchFilters.destination);
+  console.log("guests=> ", searchFilters.guests);
+
+  useEffect (() => {
+    async function fetchRentalsList() {
+      const Rentals = Moralis.Object.extend("AirbnboatRentalCreated");
+      const query = new Moralis.Query(Rentals);
+
+      query.equalTo("name", searchFilters.destination);
+      query.greaterThanOrEqualTo("maxGuests", searchFilters.guests);
+
+      const result = await query.find();
+
+      let cords = [];
+      result.forEach((e) => {
+      cords.push({ lat: e.attributes.lat, lng: e.attributes.long})
+    });
+
+    console.log("coordenates=>", cords);
+    console.log("result=>", result);
+
+      setCoOrdenates(cords);
+      setRentalsList(result);
+    }
+
+    fetchRentalsList();
+
+  },[searchFilters]);
+
+  console.log("rentalsList => ", rentalsList);
+
+
 
   return (
     <>
@@ -114,7 +132,7 @@ const Rentals = () => {
         </div>
         <hr className="line2" />
         <div className="rentalsContentR">
-          <RentalsMap  locations={cords} setHighlight={setHighlight}/>
+          <RentalsMap  locations={coOrdenates} setHighlight={setHighlight}/>
         </div>
       </div>
     </>

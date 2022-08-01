@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./rentalsMap.css";
 import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 
+
 const RentalsMap = ({ locations, google, setHighlights }) => {
+
 
   const [center, setCenter] = useState();
 
@@ -40,6 +42,7 @@ const RentalsMap = ({ locations, google, setHighlights }) => {
   ); 
 };
 
+
 export default GoogleApiWrapper({ 
-  apiKey: "",
+  apiKey : `${process.env.REACT_APP_MAPS_APY_KEY}`,
 })(RentalsMap);
